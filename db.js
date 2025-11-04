@@ -4,7 +4,12 @@ const mongoose =require('mongoose')
 //const mongoURL ='mongodb+srv://ambekarshraddha21_db_user:ska2001@cluster0.oteku1r.mongodb.net/'
 
 const mongoURL =process.env.MONGODB_URL
-mongoose.connect(mongoURL)
+mongoose.connect(mongoURL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  ssl: true,
+  // tlsAllowInvalidCertificates: true, // temporary if needed
+})
 
 const db =mongoose.connection;
 
